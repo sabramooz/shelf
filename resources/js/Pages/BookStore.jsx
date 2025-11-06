@@ -12,6 +12,7 @@ const BookStore = () => {
       title: "Clean Code: A Handbook of Agile Software Craftsmanship",
       author: "Robert C. Martin",
       publisher: "Prentice Hall",
+      publicationYear: 2008,
       price: "$45.00",
       image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
     },
@@ -20,6 +21,7 @@ const BookStore = () => {
       title: "The Mythical Man-Month: Essays on Software",
       author: "Frederick Brooks Jr.",
       publisher: "Addison-Wesley",
+      publicationYear: 1975,
       price: "$38.99",
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
     },
@@ -28,6 +30,7 @@ const BookStore = () => {
       title: "Designing Data-Intensive Applications",
       author: "Martin Kleppmann",
       publisher: "O'Reilly Media",
+      publicationYear: 2017,
       price: "$55.50",
       image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
     },
@@ -36,6 +39,7 @@ const BookStore = () => {
       title: "Code Complete: A Practical Handbook of Software",
       author: "Steve McConnell",
       publisher: "Microsoft Press",
+      publicationYear: 2004,
       price: "$49.99",
       image: "https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
     },
@@ -44,6 +48,7 @@ const BookStore = () => {
       title: "Introduction to Algorithms (CLRS)",
       author: "Cormen, Leiserson, Rivest, Stein",
       publisher: "MIT Press",
+      publicationYear: 2009,
       price: "$75.00",
       image: "https://images.unsplash.com/photo-1532012197267-da84d127e765?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
     },
@@ -52,6 +57,7 @@ const BookStore = () => {
       title: "Refactoring: Improving the Design of Existing Code",
       author: "Martin Fowler",
       publisher: "Addison-Wesley",
+      publicationYear: 2018,
       price: "$42.25",
       image: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
     },
@@ -60,6 +66,7 @@ const BookStore = () => {
       title: "The DevOps Handbook: How to Create World-Class Agility",
       author: "Gene Kim, Patrick Debois, John Willis, Jez",
       publisher: "IT Revolution Press",
+      publicationYear: 2016,
       price: "$39.50",
       image: "https://images.unsplash.com/photo-1550399105-c4db5fb85c18?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
     },
@@ -68,6 +75,7 @@ const BookStore = () => {
       title: "Structure and Interpretation of Computer Programs (SICP)",
       author: "Harold Abelson, Gerald Jay Sussman",
       publisher: "MIT Press",
+      publicationYear: 1996,
       price: "$60.00",
       image: "https://images.unsplash.com/photo-1553729459-efe14ef6055d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
     },
@@ -76,6 +84,7 @@ const BookStore = () => {
       title: "Accelerate: The Science of Lean Software and DevOps",
       author: "Nicole Forsgren, Jez Humble, Gene Kim",
       publisher: "IT Revolution Press",
+      publicationYear: 2018,
       price: "$34.75",
       image: "https://images.unsplash.com/photo-1495446815901-a7297e633e8d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
     },
@@ -84,6 +93,7 @@ const BookStore = () => {
       title: "You Don't Know JS: Scope & Closures",
       author: "Kyle Simpson",
       publisher: "O'Reilly Media",
+      publicationYear: 2014,
       price: "$29.99",
       image: "https://images.unsplash.com/photo-1592609931095-54a2168ae893?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
     },
@@ -92,6 +102,7 @@ const BookStore = () => {
       title: "JavaScript: The Good Parts",
       author: "Douglas Crockford",
       publisher: "O'Reilly Media",
+      publicationYear: 2008,
       price: "$32.50",
       image: "https://images.unsplash.com/photo-1585079542156-2755d9c8a094?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
     },
@@ -100,6 +111,7 @@ const BookStore = () => {
       title: "System Design Interview",
       author: "Alex Xu",
       publisher: "ByteByteGo",
+      publicationYear: 2020,
       price: "$44.99",
       image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
     },
@@ -108,6 +120,7 @@ const BookStore = () => {
       title: "Cracking the Coding Interview",
       author: "Gayle Laakmann McDowell",
       publisher: "CareerCup",
+      publicationYear: 2015,
       price: "$49.95",
       image: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
     },
@@ -116,6 +129,7 @@ const BookStore = () => {
       title: "Design Patterns: Elements of Reusable Object-Oriented Software",
       author: "Gang of Four",
       publisher: "Addison-Wesley",
+      publicationYear: 1994,
       price: "$54.99",
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
     },
@@ -124,6 +138,7 @@ const BookStore = () => {
       title: "The Pragmatic Programmer",
       author: "David Thomas, Andrew Hunt",
       publisher: "Addison-Wesley",
+      publicationYear: 2019,
       price: "$45.99",
       image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
     },
@@ -132,6 +147,7 @@ const BookStore = () => {
       title: "Microservices Patterns",
       author: "Chris Richardson",
       publisher: "Manning Publications",
+      publicationYear: 2018,
       price: "$59.99",
       image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
     },
@@ -140,6 +156,7 @@ const BookStore = () => {
       title: "Building Microservices",
       author: "Sam Newman",
       publisher: "O'Reilly Media",
+      publicationYear: 2021,
       price: "$52.99",
       image: "https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
     },
@@ -148,6 +165,7 @@ const BookStore = () => {
       title: "Head First Design Patterns",
       author: "Eric Freeman, Elisabeth Robson",
       publisher: "O'Reilly Media",
+      publicationYear: 2020,
       price: "$47.99",
       image: "https://images.unsplash.com/photo-1532012197267-da84d127e765?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
     },
@@ -156,6 +174,7 @@ const BookStore = () => {
       title: "Effective Java",
       author: "Joshua Bloch",
       publisher: "Addison-Wesley",
+      publicationYear: 2017,
       price: "$48.99",
       image: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
     },
@@ -164,6 +183,7 @@ const BookStore = () => {
       title: "Java: The Complete Reference",
       author: "Herbert Schildt",
       publisher: "McGraw-Hill Education",
+      publicationYear: 2021,
       price: "$65.00",
       image: "https://images.unsplash.com/photo-1550399105-c4db5fb85c18?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
     },
@@ -172,6 +192,7 @@ const BookStore = () => {
       title: "Python Crash Course",
       author: "Eric Matthes",
       publisher: "No Starch Press",
+      publicationYear: 2023,
       price: "$39.95",
       image: "https://images.unsplash.com/photo-1553729459-efe14ef6055d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
     },
@@ -180,6 +201,7 @@ const BookStore = () => {
       title: "Automate the Boring Stuff with Python",
       author: "Al Sweigart",
       publisher: "No Starch Press",
+      publicationYear: 2019,
       price: "$29.95",
       image: "https://images.unsplash.com/photo-1495446815901-a7297e633e8d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
     },
@@ -188,6 +210,7 @@ const BookStore = () => {
       title: "Learning React",
       author: "Alex Banks, Eve Porcello",
       publisher: "O'Reilly Media",
+      publicationYear: 2020,
       price: "$44.99",
       image: "https://images.unsplash.com/photo-1592609931095-54a2168ae893?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
     },
@@ -196,6 +219,7 @@ const BookStore = () => {
       title: "React: Up & Running",
       author: "Stoyan Stefanov",
       publisher: "O'Reilly Media",
+      publicationYear: 2022,
       price: "$42.99",
       image: "https://images.unsplash.com/photo-1585079542156-2755d9c8a094?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
     }
@@ -242,7 +266,8 @@ const BookStore = () => {
           {book.title}
         </h3>
         <p className="text-gray-600 text-xs mb-1">Author: {book.author}</p>
-        <p className="text-gray-500 text-xs mb-3">Publisher: {book.publisher}</p>
+        <p className="text-gray-500 text-xs mb-1">Publisher: {book.publisher}</p>
+        <p className="text-gray-500 text-xs mb-3">Published: {book.publicationYear}</p>
         <div className="flex items-center justify-between">
           <span className="text-purple-600 font-bold text-lg">{book.price}</span>
           <button className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors">
