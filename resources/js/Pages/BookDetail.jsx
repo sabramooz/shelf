@@ -170,6 +170,20 @@ const BookDetail = ({ bookId }) => {
                     </div>
                   )}
 
+                  {book.pages && (
+                    <div className="flex items-center">
+                      <span className="text-sm font-medium text-gray-600 w-24">Pages:</span>
+                      <span className="text-sm text-gray-800">{book.pages} pages</span>
+                    </div>
+                  )}
+
+                  {book.isbn && (
+                    <div className="flex items-center">
+                      <span className="text-sm font-medium text-gray-600 w-24">ISBN:</span>
+                      <span className="text-sm text-gray-800 font-mono">{book.isbn}</span>
+                    </div>
+                  )}
+
                   <div className="flex items-center">
                     <span className="text-sm font-medium text-gray-600 w-24">Price:</span>
                     <span className="text-2xl font-bold text-purple-600">${book.price}</span>
@@ -196,6 +210,16 @@ const BookDetail = ({ bookId }) => {
                   )}
                 </div>
               </div>
+
+              {/* Book Description */}
+              {book.description && (
+                <div className="border-t pt-6">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-3">About this book</h3>
+                  <p className="text-gray-700 text-sm leading-relaxed">
+                    {book.description}
+                  </p>
+                </div>
+              )}
 
               {/* Action Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 pt-6">
