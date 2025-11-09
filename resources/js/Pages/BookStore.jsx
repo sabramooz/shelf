@@ -162,7 +162,7 @@ const BookStore = () => {
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <div className="flex items-center">
-              <i className="fi fi-rr-book-open text-xl text-purple-600 mr-2"></i>
+              <i className="fi fi-rr-book text-xl text-purple-600 mr-2"></i>
               <span className="text-xl font-bold text-purple-600">Shelf</span>
             </div>
 
