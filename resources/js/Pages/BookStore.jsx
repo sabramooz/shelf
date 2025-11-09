@@ -104,13 +104,14 @@ const BookStore = () => {
           <div className="flex items-center justify-between">
             <span className="text-purple-600 font-bold text-lg">${book.price}</span>
             <button
-              className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors"
+              className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors flex items-center"
               onClick={(e) => {
                 e.preventDefault();
                 // Add to cart functionality here
                 console.log('Add to cart:', book.id);
               }}
             >
+              <i className="fi fi-rr-shopping-cart-add mr-1"></i>
               Add to cart
             </button>
           </div>
@@ -161,16 +162,15 @@ const BookStore = () => {
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <div className="flex items-center">
-              <span className="text-xl font-bold text-purple-600">📘 Shelf</span>
+              <i className="fi fi-rr-book-open text-xl text-purple-600 mr-2"></i>
+              <span className="text-xl font-bold text-purple-600">Shelf</span>
             </div>
 
             {/* Search Bar */}
             <div className="flex-1 max-w-lg mx-8">
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <svg className="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                  </svg>
+                  <i className="fi fi-rr-search h-5 w-5 text-gray-400"></i>
                 </div>
                 <input
                   type="text"
@@ -184,9 +184,7 @@ const BookStore = () => {
                     onClick={clearSearch}
                     className="absolute inset-y-0 right-0 pr-3 flex items-center hover:text-gray-700"
                   >
-                    <svg className="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                    </svg>
+                    <i className="fi fi-rr-cross h-5 w-5 text-gray-400"></i>
                   </button>
                 )}
               </div>
@@ -195,14 +193,10 @@ const BookStore = () => {
             {/* Icons */}
             <div className="flex items-center space-x-4">
               <button className="relative p-2 text-gray-400 hover:text-gray-500">
-                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5-5M7 13l-2.5 5M17 13v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6m8 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01" />
-                </svg>
+                <i className="fi fi-rr-shopping-cart h-6 w-6"></i>
               </button>
               <button className="p-2 text-gray-400 hover:text-gray-500">
-                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                </svg>
+                <i className="fi fi-rr-user h-6 w-6"></i>
               </button>
             </div>
           </div>
@@ -250,9 +244,7 @@ const BookStore = () => {
           </>
         ) : (
           <div className="text-center py-16">
-            <svg className="mx-auto h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.485 0-4.751.767-6.343 2.072C6.765 16.657 7.622 16 8.5 16h7c.878 0 1.735.657 2.843 1.072zM15 11V9a6 6 0 10-12 0v2m5.121.879a3 3 0 011.758 0" />
-            </svg>
+            <i className="fi fi-rr-book mx-auto text-6xl text-gray-400 mb-4"></i>
             <p className="mt-4 text-lg text-gray-600">
               There isn't any book with your search keyword.
             </p>

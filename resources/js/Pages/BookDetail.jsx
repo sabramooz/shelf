@@ -36,7 +36,10 @@ const BookDetail = ({ bookId }) => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between h-16">
               <div className="flex items-center">
-                <Link href="/" className="text-xl font-bold text-purple-600">📘 Shelf</Link>
+                <Link href="/" className="flex items-center">
+                  <i className="fi fi-rr-book-open text-xl text-purple-600 mr-2"></i>
+                  <span className="text-xl font-bold text-purple-600">Shelf</span>
+                </Link>
               </div>
             </div>
           </div>
@@ -56,25 +59,24 @@ const BookDetail = ({ bookId }) => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between h-16">
               <div className="flex items-center">
-                <Link href="/" className="text-xl font-bold text-purple-600">📘 Shelf</Link>
+                <Link href="/" className="flex items-center">
+                  <i className="fi fi-rr-book-open text-xl text-purple-600 mr-2"></i>
+                  <span className="text-xl font-bold text-purple-600">Shelf</span>
+                </Link>
               </div>
             </div>
           </div>
         </nav>
 
         <div className="text-center py-32">
-          <svg className="mx-auto h-16 w-16 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.732-.833-2.5 0L4.268 16.5c-.77.833.192 2.5 1.732 2.5z" />
-          </svg>
+          <i className="fi fi-rr-exclamation text-6xl text-gray-400 mb-4"></i>
           <p className="mt-4 text-xl text-gray-600">Book Not Found</p>
           <p className="text-gray-500">The book you're looking for doesn't exist.</p>
           <Link
             href="/"
             className="mt-6 inline-flex items-center px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700 transition-colors"
           >
-            <svg className="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
+            <i className="fi fi-rr-angle-left w-4 h-4 mr-2"></i>
             Back to Books
           </Link>
         </div>
@@ -89,18 +91,17 @@ const BookDetail = ({ bookId }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
-              <Link href="/" className="text-xl font-bold text-purple-600">📘 Shelf</Link>
+              <Link href="/" className="flex items-center">
+                <i className="fi fi-rr-book-open text-xl text-purple-600 mr-2"></i>
+                <span className="text-xl font-bold text-purple-600">Shelf</span>
+              </Link>
             </div>
             <div className="flex items-center space-x-4">
               <button className="relative p-2 text-gray-400 hover:text-gray-500">
-                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5-5M7 13l-2.5 5M17 13v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6m8 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01" />
-                </svg>
+                <i className="fi fi-rr-shopping-cart h-6 w-6"></i>
               </button>
               <button className="p-2 text-gray-400 hover:text-gray-500">
-                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                </svg>
+                <i className="fi fi-rr-user h-6 w-6"></i>
               </button>
             </div>
           </div>
@@ -113,16 +114,12 @@ const BookDetail = ({ bookId }) => {
           <ol className="flex items-center space-x-4">
             <li>
               <Link href="/" className="text-gray-500 hover:text-gray-700">
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
-                </svg>
+                <i className="fi fi-rr-home w-4 h-4"></i>
               </Link>
             </li>
             <li>
               <div className="flex items-center">
-                <svg className="flex-shrink-0 h-5 w-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
-                </svg>
+                <i className="fi fi-rr-angle-right flex-shrink-0 h-5 w-5 text-gray-400"></i>
                 <span className="ml-4 text-sm font-medium text-gray-500 truncate max-w-xs">
                   {book.title}
                 </span>
@@ -195,13 +192,10 @@ const BookDetail = ({ bookId }) => {
                       <div className="flex items-center">
                         <div className="flex text-yellow-400">
                           {[...Array(5)].map((_, i) => (
-                            <svg
+                            <i
                               key={i}
-                              className={`w-4 h-4 ${i < Math.floor(book.popularity / 20) ? 'fill-current' : 'fill-gray-300'}`}
-                              viewBox="0 0 20 20"
-                            >
-                              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                            </svg>
+                              className={`fi ${i < Math.floor(book.popularity / 20) ? 'fi-sr-star' : 'fi-rr-star'} w-4 h-4`}
+                            ></i>
                           ))}
                         </div>
                         <span className="ml-2 text-sm text-gray-600">({book.popularity}/100)</span>
@@ -223,17 +217,13 @@ const BookDetail = ({ bookId }) => {
 
               {/* Action Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 pt-6">
-                <button className="flex-1 bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 rounded-md text-lg font-medium transition-colors">
-                  <svg className="w-5 h-5 mr-2 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5-5M7 13l-2.5 5M17 13v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6m8 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01" />
-                  </svg>
+                <button className="flex-1 bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 rounded-md text-lg font-medium transition-colors flex items-center justify-center">
+                  <i className="fi fi-rr-shopping-cart-add w-5 h-5 mr-2"></i>
                   Add to Cart
                 </button>
 
-                <button className="flex-1 border-2 border-purple-600 text-purple-600 hover:bg-purple-50 px-8 py-3 rounded-md text-lg font-medium transition-colors">
-                  <svg className="w-5 h-5 mr-2 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                  </svg>
+                <button className="flex-1 border-2 border-purple-600 text-purple-600 hover:bg-purple-50 px-8 py-3 rounded-md text-lg font-medium transition-colors flex items-center justify-center">
+                  <i className="fi fi-rr-heart w-5 h-5 mr-2"></i>
                   Add to Wishlist
                 </button>
               </div>
@@ -244,9 +234,7 @@ const BookDetail = ({ bookId }) => {
                   href="/"
                   className="inline-flex items-center text-purple-600 hover:text-purple-700 font-medium"
                 >
-                  <svg className="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                  </svg>
+                  <i className="fi fi-rr-angle-left w-4 h-4 mr-2"></i>
                   Back to All Books
                 </Link>
               </div>
