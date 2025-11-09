@@ -1,205 +1,57 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
+import { Link } from '@inertiajs/react';
 
 const BookStore = () => {
   const [sortBy, setSortBy] = useState('Popularity');
   const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState('');
+  const [books, setBooks] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [pagination, setPagination] = useState({});
 
-  // Sample book data matching the design
-  const books = [
-    {
-      id: 1,
-      title: "Clean Code: A Handbook of Agile Software Craftsmanship",
-      author: "Robert C. Martin",
-      publisher: "Prentice Hall",
-      price: "$45.00",
-      image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-    },
-    {
-      id: 2,
-      title: "The Mythical Man-Month: Essays on Software",
-      author: "Frederick Brooks Jr.",
-      publisher: "Addison-Wesley",
-      price: "$38.99",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-    },
-    {
-      id: 3,
-      title: "Designing Data-Intensive Applications",
-      author: "Martin Kleppmann",
-      publisher: "O'Reilly Media",
-      price: "$55.50",
-      image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-    },
-    {
-      id: 4,
-      title: "Code Complete: A Practical Handbook of Software",
-      author: "Steve McConnell",
-      publisher: "Microsoft Press",
-      price: "$49.99",
-      image: "https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-    },
-    {
-      id: 5,
-      title: "Introduction to Algorithms (CLRS)",
-      author: "Cormen, Leiserson, Rivest, Stein",
-      publisher: "MIT Press",
-      price: "$75.00",
-      image: "https://images.unsplash.com/photo-1532012197267-da84d127e765?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-    },
-    {
-      id: 6,
-      title: "Refactoring: Improving the Design of Existing Code",
-      author: "Martin Fowler",
-      publisher: "Addison-Wesley",
-      price: "$42.25",
-      image: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-    },
-    {
-      id: 7,
-      title: "The DevOps Handbook: How to Create World-Class Agility",
-      author: "Gene Kim, Patrick Debois, John Willis, Jez",
-      publisher: "IT Revolution Press",
-      price: "$39.50",
-      image: "https://images.unsplash.com/photo-1550399105-c4db5fb85c18?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-    },
-    {
-      id: 8,
-      title: "Structure and Interpretation of Computer Programs (SICP)",
-      author: "Harold Abelson, Gerald Jay Sussman",
-      publisher: "MIT Press",
-      price: "$60.00",
-      image: "https://images.unsplash.com/photo-1553729459-efe14ef6055d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-    },
-    {
-      id: 9,
-      title: "Accelerate: The Science of Lean Software and DevOps",
-      author: "Nicole Forsgren, Jez Humble, Gene Kim",
-      publisher: "IT Revolution Press",
-      price: "$34.75",
-      image: "https://images.unsplash.com/photo-1495446815901-a7297e633e8d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-    },
-    {
-      id: 10,
-      title: "You Don't Know JS: Scope & Closures",
-      author: "Kyle Simpson",
-      publisher: "O'Reilly Media",
-      price: "$29.99",
-      image: "https://images.unsplash.com/photo-1592609931095-54a2168ae893?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-    },
-    {
-      id: 11,
-      title: "JavaScript: The Good Parts",
-      author: "Douglas Crockford",
-      publisher: "O'Reilly Media",
-      price: "$32.50",
-      image: "https://images.unsplash.com/photo-1585079542156-2755d9c8a094?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-    },
-    {
-      id: 12,
-      title: "System Design Interview",
-      author: "Alex Xu",
-      publisher: "ByteByteGo",
-      price: "$44.99",
-      image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-    },
-    {
-      id: 13,
-      title: "Cracking the Coding Interview",
-      author: "Gayle Laakmann McDowell",
-      publisher: "CareerCup",
-      price: "$49.95",
-      image: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-    },
-    {
-      id: 14,
-      title: "Design Patterns: Elements of Reusable Object-Oriented Software",
-      author: "Gang of Four",
-      publisher: "Addison-Wesley",
-      price: "$54.99",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-    },
-    {
-      id: 15,
-      title: "The Pragmatic Programmer",
-      author: "David Thomas, Andrew Hunt",
-      publisher: "Addison-Wesley",
-      price: "$45.99",
-      image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-    },
-    {
-      id: 16,
-      title: "Microservices Patterns",
-      author: "Chris Richardson",
-      publisher: "Manning Publications",
-      price: "$59.99",
-      image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-    },
-    {
-      id: 17,
-      title: "Building Microservices",
-      author: "Sam Newman",
-      publisher: "O'Reilly Media",
-      price: "$52.99",
-      image: "https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-    },
-    {
-      id: 18,
-      title: "Head First Design Patterns",
-      author: "Eric Freeman, Elisabeth Robson",
-      publisher: "O'Reilly Media",
-      price: "$47.99",
-      image: "https://images.unsplash.com/photo-1532012197267-da84d127e765?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-    },
-    {
-      id: 19,
-      title: "Effective Java",
-      author: "Joshua Bloch",
-      publisher: "Addison-Wesley",
-      price: "$48.99",
-      image: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-    },
-    {
-      id: 20,
-      title: "Java: The Complete Reference",
-      author: "Herbert Schildt",
-      publisher: "McGraw-Hill Education",
-      price: "$65.00",
-      image: "https://images.unsplash.com/photo-1550399105-c4db5fb85c18?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-    },
-    {
-      id: 21,
-      title: "Python Crash Course",
-      author: "Eric Matthes",
-      publisher: "No Starch Press",
-      price: "$39.95",
-      image: "https://images.unsplash.com/photo-1553729459-efe14ef6055d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-    },
-    {
-      id: 22,
-      title: "Automate the Boring Stuff with Python",
-      author: "Al Sweigart",
-      publisher: "No Starch Press",
-      price: "$29.95",
-      image: "https://images.unsplash.com/photo-1495446815901-a7297e633e8d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-    },
-    {
-      id: 23,
-      title: "Learning React",
-      author: "Alex Banks, Eve Porcello",
-      publisher: "O'Reilly Media",
-      price: "$44.99",
-      image: "https://images.unsplash.com/photo-1592609931095-54a2168ae893?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-    },
-    {
-      id: 24,
-      title: "React: Up & Running",
-      author: "Stoyan Stefanov",
-      publisher: "O'Reilly Media",
-      price: "$42.99",
-      image: "https://images.unsplash.com/photo-1585079542156-2755d9c8a094?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+  // Fetch books from API
+  useEffect(() => {
+    fetchBooks();
+  }, [currentPage, sortBy]);
+
+  const fetchBooks = async () => {
+    try {
+      setLoading(true);
+
+      // Map sort options to API parameters
+      const getSortParams = (sortOption) => {
+        switch (sortOption) {
+          case 'Price: Low to High':
+            return { sort: 'price', direction: 'asc' };
+          case 'Price: High to Low':
+            return { sort: 'price', direction: 'desc' };
+          case 'Newest':
+            return { sort: 'created_at', direction: 'desc' };
+          case 'Title A-Z':
+            return { sort: 'title', direction: 'asc' };
+          case 'Popularity':
+          default:
+            return { sort: 'popularity', direction: 'desc' };
+        }
+      };
+
+      const { sort, direction } = getSortParams(sortBy);
+      const response = await fetch(`/api/books?page=${currentPage}&per_page=9&sort=${sort}&direction=${direction}`);
+      const data = await response.json();
+
+      setBooks(data.data || []);
+      setPagination({
+        current_page: data.current_page,
+        last_page: data.last_page,
+        total: data.total
+      });
+    } catch (error) {
+      console.error('Error fetching books:', error);
+      setBooks([]);
+    } finally {
+      setLoading(false);
     }
-  ];
+  };
 
   // Filter books based on search query
   const filteredBooks = useMemo(() => {
@@ -207,19 +59,24 @@ const BookStore = () => {
       return books;
     }
     return books.filter(book =>
-      book.title.toLowerCase().includes(searchQuery.toLowerCase())
+      book.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      book.author.toLowerCase().includes(searchQuery.toLowerCase())
     );
   }, [books, searchQuery]);
 
-  const itemsPerPage = 9;
-  const totalPages = Math.ceil(filteredBooks.length / itemsPerPage);
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const currentBooks = filteredBooks.slice(startIndex, startIndex + itemsPerPage);
+  const currentBooks = searchQuery.trim() ? filteredBooks : books;
+  const totalPages = searchQuery.trim() ? 1 : (pagination.last_page || 1);
 
   // Handle search input change and reset pagination
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
     setCurrentPage(1); // Reset to first page when searching
+  };
+
+  // Handle sort change
+  const handleSortChange = (e) => {
+    setSortBy(e.target.value);
+    setCurrentPage(1); // Reset to first page when sorting
   };
 
   // Clear search
@@ -229,28 +86,37 @@ const BookStore = () => {
   };
 
   const BookCard = ({ book }) => (
-    <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow">
-      <div className="aspect-[3/4] overflow-hidden bg-gray-100">
-        <img
-          src={book.image}
-          alt={book.title}
-          className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-        />
-      </div>
-      <div className="p-4">
-        <h3 className="font-semibold text-gray-900 text-sm mb-2 line-clamp-2 leading-tight">
-          {book.title}
-        </h3>
-        <p className="text-gray-600 text-xs mb-1">Author: {book.author}</p>
-        <p className="text-gray-500 text-xs mb-3">Publisher: {book.publisher}</p>
-        <div className="flex items-center justify-between">
-          <span className="text-purple-600 font-bold text-lg">{book.price}</span>
-          <button className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors">
-            Add to cart
-          </button>
+    <Link href={`/book/${book.id}`}>
+      <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow cursor-pointer">
+        <div className="aspect-[3/4] overflow-hidden bg-gray-100">
+          <img
+            src={book.cover_image || "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"}
+            alt={book.title}
+            className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+          />
+        </div>
+        <div className="p-4">
+          <h3 className="font-semibold text-gray-900 text-sm mb-2 line-clamp-2 leading-tight">
+            {book.title}
+          </h3>
+          <p className="text-gray-600 text-xs mb-1">Author: {book.author}</p>
+          <p className="text-gray-500 text-xs mb-3">Publisher: {book.publisher}</p>
+          <div className="flex items-center justify-between">
+            <span className="text-purple-600 font-bold text-lg">${book.price}</span>
+            <button
+              className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors"
+              onClick={(e) => {
+                e.preventDefault();
+                // Add to cart functionality here
+                console.log('Add to cart:', book.id);
+              }}
+            >
+              Add to cart
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 
   const Pagination = () => (
@@ -354,7 +220,7 @@ const BookStore = () => {
             <label className="text-sm text-gray-600 mr-2">Sort By:</label>
             <select
               value={sortBy}
-              onChange={(e) => setSortBy(e.target.value)}
+              onChange={handleSortChange}
               className="border border-gray-300 rounded-md px-3 py-1 text-sm focus:outline-none focus:ring-1 focus:ring-purple-500 focus:border-purple-500"
             >
               <option value="Popularity">Popularity</option>
@@ -366,8 +232,12 @@ const BookStore = () => {
           </div>
         </div>
 
-        {/* Books Grid or No Results */}
-        {currentBooks.length > 0 ? (
+        {/* Loading State */}
+        {loading ? (
+          <div className="flex justify-center items-center py-16">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600"></div>
+          </div>
+        ) : currentBooks.length > 0 ? (
           <>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {currentBooks.map((book) => (
@@ -375,8 +245,8 @@ const BookStore = () => {
               ))}
             </div>
 
-            {/* Pagination */}
-            {totalPages > 1 && <Pagination />}
+            {/* Pagination - only show for non-search results */}
+            {!searchQuery.trim() && totalPages > 1 && <Pagination />}
           </>
         ) : (
           <div className="text-center py-16">
