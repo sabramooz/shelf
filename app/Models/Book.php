@@ -24,6 +24,8 @@ class Book extends Model
         'isbn',
         'image',
         'summary',
+        'created_at',
+        'updated_at',
     ];
 
     /**

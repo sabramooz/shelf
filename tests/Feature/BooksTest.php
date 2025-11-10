@@ -26,7 +26,7 @@ class BooksTest extends TestCase
      */
     public function test_books_index_page_displays_books(): void
     {
-        // Create test books
+        // Create test books with explicit timestamps
         $book1 = Book::create([
             'title' => 'Test Book 1',
             'author' => 'Test Author 1',
@@ -37,6 +37,7 @@ class BooksTest extends TestCase
             'isbn' => '978-1234567890',
             'image' => 'https://example.com/image1.jpg',
             'summary' => 'This is a test book summary.',
+            'created_at' => now()->subMinutes(2),
         ]);
 
         $book2 = Book::create([
@@ -49,6 +50,7 @@ class BooksTest extends TestCase
             'isbn' => '978-0987654321',
             'image' => 'https://example.com/image2.jpg',
             'summary' => 'This is another test book summary.',
+            'created_at' => now()->subMinutes(1),
         ]);
 
         $response = $this->get('/books');
